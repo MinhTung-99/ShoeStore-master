@@ -9,9 +9,9 @@ import nguyen.shoestore.Entity.User;
 @Setter
 public class ResponseOrderDTO {
     private Integer codeOrder;
-    private User user;
-    private User staff;
-    private Item item;
+    public User user;
+    public User staff;
+    public Item item;
     private Integer quantity;
     private double money;
     private Integer process;

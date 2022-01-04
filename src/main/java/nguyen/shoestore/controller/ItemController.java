@@ -1,5 +1,6 @@
 package nguyen.shoestore.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import nguyen.shoestore.Service.ItemService;
 import nguyen.shoestore.Dto.ItemDTO;
 import nguyen.shoestore.Dto.ResponseDTO;
@@ -10,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @RestController
 @RequestMapping(value = "/item")
 public class ItemController {

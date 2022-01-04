@@ -1,5 +1,6 @@
 package nguyen.shoestore.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import nguyen.shoestore.Dto.ResponseDTO;
 import nguyen.shoestore.Entity.Role;
 import nguyen.shoestore.Service.RoleService;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @RestController
 @RequestMapping(value = "/role")
 public class RoleController {

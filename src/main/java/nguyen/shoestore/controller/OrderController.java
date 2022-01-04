@@ -1,8 +1,10 @@
 package nguyen.shoestore.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import nguyen.shoestore.Dto.OrderDTO;
 import nguyen.shoestore.Dto.ProductDTO;
 import nguyen.shoestore.Dto.ResponseDTO;
+import nguyen.shoestore.Dto.ResponseOrderDTO;
 import nguyen.shoestore.Entity.PurchaseOrder;
 import nguyen.shoestore.Service.PurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @RestController
 @RequestMapping(value = "/order")
 public class OrderController {

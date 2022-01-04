@@ -1,5 +1,6 @@
 package nguyen.shoestore.Repository;
 
+import nguyen.shoestore.Dto.ResponseOrderDTO;
 import nguyen.shoestore.Entity.PurchaseOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,6 +18,4 @@ public interface PurchaseOrderRepo extends JpaRepository<PurchaseOrder, Integer>
     List<PurchaseOrder> getByItemId (Integer itemId);
     List<PurchaseOrder> getByProcess (Integer process);
     PurchaseOrder getByCreateTime (LocalDateTime createTime);
-    @Query("select o,u,i from PurchaseOrder o, User u, Item i where o.idUser=u.id and o.itemId=i.itemId and o.idStaff =u.id")
-    List<ResponseOrderDTO> getAllInformationOder();
 }
