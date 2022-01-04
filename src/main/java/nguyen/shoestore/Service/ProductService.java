@@ -61,6 +61,8 @@ public class ProductService {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         product.setUpdateTime(simpleDateFormat.format(new Date()));
         productRepo.save(product);
+        responseDTO.setCode(1);
+        responseDTO.setMessage("success");
     //TODO : them updater.
         return responseDTO;
     }
@@ -77,9 +79,11 @@ public class ProductService {
                 item.setStatus(0);
                 itemRepo.save(item);
                 product.setStatus(0);
+                responseDTO.setCode(1);
                 responseDTO.setMessage("success");
             }
         }else {
+            responseDTO.setCode(0);
             responseDTO.setMessage("fail");
         }
         return responseDTO;

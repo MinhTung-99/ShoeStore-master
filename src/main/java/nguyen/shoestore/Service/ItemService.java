@@ -66,6 +66,8 @@ public class ItemService {
             itemDTO.setNumItems(itemDTO.getNumItems() + item1.getNumItems());
             setItem(itemDTO, item1);
         }
+        responseDTO.setCode(1);
+        responseDTO.setMessage("success");
         return responseDTO;
     }
 
@@ -86,6 +88,8 @@ public class ItemService {
         Assert.notNull(item, MessageUtils.getMessage("error.notfound",itemId));
         item.setStatus(0);
         itemRepo.save(item);
+        responseDTO.setCode(1);
+        responseDTO.setMessage("success");
         return responseDTO;
     }
     @Transactional
@@ -94,6 +98,8 @@ public class ItemService {
         Item item = itemRepo.getById(itemDTO.getItemId());
         Assert.notNull(item, MessageUtils.getMessage("error.notfound",itemDTO.getItemId()));
         setItem(itemDTO, item);
+        responseDTO.setCode(1);
+        responseDTO.setMessage("success");
         return responseDTO;
     }
     @Transactional

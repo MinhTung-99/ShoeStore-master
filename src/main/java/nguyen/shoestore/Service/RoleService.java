@@ -34,9 +34,11 @@ public class RoleService {
             Role role = roleRepo.getByRoleName(roleName);
             Assert.isNull(role, MessageUtils.getMessage("error.notfound",roleName));
             roleRepo.save(role);
+            responseDTO.setCode(1);
+            responseDTO.setMessage("success");
             return responseDTO;
         }catch (IllegalArgumentException e){
-            responseDTO.setCode(1);
+            responseDTO.setCode(0);
             responseDTO.setMessage(e.getMessage());
             return responseDTO;
         }
@@ -47,6 +49,8 @@ public class RoleService {
         Role role = roleRepo.getById(roleId);
         Assert.notNull(role, MessageUtils.getMessage("error.notfound",roleId));
         roleRepo.delete(role);
+        responseDTO.setCode(1);
+        responseDTO.setMessage("success");
         return responseDTO;
     }
 }

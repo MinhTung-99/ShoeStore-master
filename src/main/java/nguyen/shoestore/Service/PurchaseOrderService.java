@@ -108,6 +108,8 @@ public class PurchaseOrderService {
         item.setNumItems(oldNumber-orderDTO.getQuantity());
         itemRepo.save(item);
         orderRepo.save(purchaseOrder);
+        responseDTO.setCode(1);
+        responseDTO.setMessage("success");
         return responseDTO;
     }
 
@@ -129,6 +131,8 @@ public class PurchaseOrderService {
         Assert.notNull(purchaseOrder, MessageUtils.getMessage("error.notfound",orderId));
         purchaseOrder.setStatus(0);
         orderRepo.save(purchaseOrder);
+        responseDTO.setCode(1);
+        responseDTO.setMessage("success");
         return responseDTO;
     }
 
