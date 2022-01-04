@@ -21,7 +21,7 @@ public class OrderController {
         this.orderService = orderService;
     }
     @GetMapping
-    public List<PurchaseOrder> getAllOrder() {
+    public List<ResponseOrderDTO> getAllOrder() {
         return orderService.getAllPurchaseOrders();
     }
     @GetMapping(value = "/id")
