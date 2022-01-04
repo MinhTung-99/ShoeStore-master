@@ -23,6 +23,18 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
+    @GetMapping(value = "/active")
+    public List<User> getAllUsersActive() {
+        return userService.getAllUsersActive();
+    }
+    @GetMapping(value = "/costumer")
+    public List<User> getAllCostumer() {
+        return userService.getAllCostumer();
+    }
+    @GetMapping(value = "/admin")
+    public List<User> getAllAdmin() {
+        return userService.getAllAdmin();
+    }
     @GetMapping(value = "/id")
     public Optional<User> findUserById(@RequestParam Integer id) {
         return userService.findUserById(id);
