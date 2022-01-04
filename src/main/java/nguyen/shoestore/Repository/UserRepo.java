@@ -10,6 +10,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     User findByUserName(String userName);
     @Query("select u from User u where u.status =  1")
     List<User> findByAllActive();
+    List<User> getAllByRoleId(Integer userId);
     List<User> getByFullName (String fullName);
     @Query("select u from User u where u.roleId=1 and u.status =1 and u.fullName =: csName")
     User getByCostumersName(String csName);
