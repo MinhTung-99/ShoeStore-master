@@ -30,8 +30,8 @@ public class PurchaseOrderService {
         this.userRepo = userRepo;
         this.itemRepo = itemRepo;
     }
-    public List<PurchaseOrder> getAllPurchaseOrders() {
-        return orderRepo.findAll();
+    public List<ResponseOrderDTO> getAllPurchaseOrders() {
+        return orderRepo.getAllInformationOder();
     }
     public Optional<PurchaseOrder> findPurchaseOrderById(Integer codeOrder) {
         return orderRepo.findById(codeOrder);
