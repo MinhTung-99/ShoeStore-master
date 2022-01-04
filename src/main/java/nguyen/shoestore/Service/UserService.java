@@ -32,8 +32,17 @@ public class UserService {
         this.salaryService = salaryService;
     }
 
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers(){
+        return userRepo.findAll();
+    }
+    public List<User> getAllUsersActive() {
         return userRepo.findByAllActive();
+    }
+    public List<User> getAllCostumer(){
+        return userRepo.getAllByRoleId(1);
+    }
+    public List<User> getAllAdmin(){
+        return userRepo.getAllByRoleId(3);
     }
     public Optional<User> findUserById(Integer id) {
         return userRepo.findById(id);
@@ -81,6 +90,8 @@ public class UserService {
         user.setEmail(userDTO.getEmail());
         user.setStatus(1);
         userRepo.save(user);
+        responseDTO.setCode(1);
+        responseDTO.setMessage("success");
         return responseDTO;
     }
     @Transactional
@@ -90,6 +101,8 @@ public class UserService {
         Assert.notNull(user, MessageUtils.getMessage("error.notfound",id));
         user.setStatus(0);
         userRepo.save(user);
+        responseDTO.setCode(1);
+        responseDTO.setMessage("success");
         return responseDTO;
     }
     @Transactional
@@ -105,8 +118,12 @@ public class UserService {
             user.setAddress(userDTO.getAddress());
             user.setStatus(1);
             userRepo.save(user);
+            responseDTO.setCode(1);
+            responseDTO.setMessage("success");
         }else {
             System.out.printf("sai  mat khau");
+            responseDTO.setCode(0);
+            responseDTO.setMessage("sai mat khau");
         }
         return responseDTO;
     }
